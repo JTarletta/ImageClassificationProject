@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <body>
+
+        <h1 style="text-align:center">Clasificador de Imágenes</h1>
+
+            <h2>
+            <form action="/", method="post" enctype="multipart/form-data">
+                <label for="ImageFile">Selecciona una Imagen:</label><br><br>
+                <input type="file" id="ImageFile" name="ImageFile" accept="image/png, image/jpeg" >
+                <!-- 
+                {% if filename %}
+                    <div>
+                        <img src="{{ url_for('display_image', filename=filename) }}">
+                    </div>
+                {% endif %}
+                -->
+                <br><br>
+                
+                   
+                <!--
+                <script>
+                    var loadFile = function(event) {
+                        document.getElementById('ImageFile').src="images/*";
+                        var image = document.getElementById('ImageFile');
+                        image.src = URL.createObjectURL(event.target.files[0]);
+                        document.getElementById('target').innerHtml = '<img src="' +ImageFile+'"/>'; 
+                    };
+                </script>
+                -->
+                
+                <input type="submit" value="Predecir Imagen">
+            </form>
+            </h2>
+            
+
+        {% if prediction %}
+            <p class="text-center">La predicción es: {{prediction}} </p>
+        {% endif %}
+
+    </body>
+</html>
