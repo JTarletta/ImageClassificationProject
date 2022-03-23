@@ -2,7 +2,6 @@ from email.mime import image
 import torch
 from torchvision import models, transforms #Modelos, y Transformaciones para ajustal la imagen 
 from PIL import Image
-from io import BytesIO #Lectura de la Imagen
 
 #Cargamos el diccionario de Etiquetas de ImageNet
 with open("resources\imageNet_index.txt") as f:
@@ -13,7 +12,7 @@ with open("resources\imageNet_index.txt") as f:
 imagen = Image.open("images\prueba.jpeg")
 #imagen.show()
 
-def predictor(image_path=imagen):
+def clasificador(image_path=imagen):
     # print(dir(models)) #Modelos de clasificación de imágenes
 
     imagen = Image.open(image_path)
@@ -46,7 +45,7 @@ def predictor(image_path=imagen):
 
     _, indices = torch.sort(out, descending=True)
     
-    #print(indices[0][:3]) #3 Predicciones de la red según los Indices de ImageNet
+    #print(indices[0][:3]) #3 Clasificaciones de la red según los Indices de ImageNet
     clave = indices[0][:1].item()
 
     clasification = idx2label.get(clave)
