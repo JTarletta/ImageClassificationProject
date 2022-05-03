@@ -14,7 +14,7 @@ def principal():
 @app.route('/', methods=['POST'])
 def logica():
     imageFile = request.files['ImageFile'] 
-    image_path = "./static/" + imageFile.filename
+    image_path = "./static/img/" + imageFile.filename
     imageFile.save(image_path)
 
     classification = clasificador(image_path=image_path)

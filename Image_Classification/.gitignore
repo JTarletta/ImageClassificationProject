@@ -17,9 +17,6 @@ build/
 
 src/
 
-static/img/*.jpg
-static/img/*.jpeg
-static/img/*.png
-static/img/*.gif
+static/*
 
 !static/img/prueba.jpeg
