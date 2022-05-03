@@ -14,19 +14,17 @@ def principal():
 @app.route('/', methods=['POST'])
 def logica():
     imageFile = request.files['ImageFile'] 
-    image_path = "./images/" + imageFile.filename
+    image_path = "./static/" + imageFile.filename
     imageFile.save(image_path)
 
     classification = clasificador(image_path=image_path)
 
-#    filename = secure_filename(imageFile.filename) #Para hacer display de la imagen
 
-    return render_template('index.html', clasificador=classification) #, filename=filename)
+    return render_template('index.html', clasificador=classification, image=image_path) 
 
-#@app.route('/display/<filename>')
-#def display_image(filename):
-#    print('display_image filename: ' + filename)
-#    return redirect(url_for('images', filename='' + filename), code=301)
+@app.route('/cls', methods=['GET'])
+def cls():
+    return render_template('indexcls.html')
 
 
 if __name__ == '__main__':

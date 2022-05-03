@@ -9,7 +9,7 @@ with open("resources\imageNet_index.txt") as f:
 #print(idx2label, idx2label.get(916))
 
 #Imagen a clasificar
-imagen = Image.open("images\prueba.jpeg")
+imagen = Image.open("static\prueba.jpeg")
 #imagen.show()
 
 def clasificador(image_path=imagen):
