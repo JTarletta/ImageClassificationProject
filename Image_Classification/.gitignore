@@ -17,6 +17,4 @@ build/
 
 src/
 
-static/*
-
 !static/img/prueba.jpeg
